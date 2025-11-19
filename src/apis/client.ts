@@ -8,14 +8,14 @@ import type {
 } from "axios";
 import type { ApiClient, ApiResponse, ApiResult } from "../types";
 
-const baseURL = import.meta.env.API_BASE_URL;
+const baseURL = import.meta.env.VITE_APP_API_BASE_URL;
 const AUTH_TOKEN = "4ApVMIn5sTxeW7GQ5VWeWiy";
 
 const axiosInstance = axios.create({
   baseURL,
-  withCredentials: true,
   headers: {
     "Content-Type": "application/json",
+    Accept: "application/json",
     Authorization: `Bearer ${AUTH_TOKEN}`,
   },
 });
