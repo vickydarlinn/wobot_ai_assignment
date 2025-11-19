@@ -1,5 +1,7 @@
+import CameraPage from "./pages/cameraPage";
+
 const App = () => {
-  return <div>App</div>;
+  return <CameraPage />;
 };
 
 export default App;
