@@ -40,44 +40,6 @@ export const useQuery = () => {
     setSearchParams(newSearch ? `?${newSearch}` : "");
   }, []);
 
-  // Get a specific query parameter
-  const getQuery = useCallback(
-    (key: string): string | null => {
-      const params = new URLSearchParams(searchParams);
-      return params.get(key);
-    },
-    [searchParams]
-  );
-
-  // Get all query parameters as an object
-  const getAllQueries = useCallback((): Record<string, string> => {
-    return queryParams;
-  }, [queryParams]);
-
-  // Set a single query parameter (replaces existing value)
-  const setQuery = useCallback(
-    (key: string, value: string, replace = false) => {
-      const params = new URLSearchParams(searchParams);
-      params.set(key, value);
-      updateURL(params.toString(), replace);
-    },
-    [searchParams, updateURL]
-  );
-
-  // Set multiple query parameters at once
-  const setQueries = useCallback(
-    (queries: Record<string, string>, replace = false) => {
-      const params = new URLSearchParams(searchParams);
-
-      Object.entries(queries).forEach(([key, value]) => {
-        params.set(key, value);
-      });
-
-      updateURL(params.toString(), replace);
-    },
-    [searchParams, updateURL]
-  );
-
   // Update query parameters (merge with existing)
   const updateQueries = useCallback(
     (queries: Record<string, string | null | undefined>, replace = false) => {
@@ -96,83 +58,8 @@ export const useQuery = () => {
     [searchParams, updateURL]
   );
 
-  // Delete a single query parameter
-  const deleteQuery = useCallback(
-    (key: string, replace = false) => {
-      const params = new URLSearchParams(searchParams);
-      params.delete(key);
-      updateURL(params.toString(), replace);
-    },
-    [searchParams, updateURL]
-  );
-
-  // Delete multiple query parameters
-  const deleteQueries = useCallback(
-    (keys: string[], replace = false) => {
-      const params = new URLSearchParams(searchParams);
-
-      keys.forEach((key) => {
-        params.delete(key);
-      });
-
-      updateURL(params.toString(), replace);
-    },
-    [searchParams, updateURL]
-  );
-
-  // Clear all query parameters
-  const clearQueries = useCallback(
-    (replace = false) => {
-      updateURL("", replace);
-    },
-    [updateURL]
-  );
-
-  // Check if a query parameter exists
-  const hasQuery = useCallback(
-    (key: string): boolean => {
-      const params = new URLSearchParams(searchParams);
-      return params.has(key);
-    },
-    [searchParams]
-  );
-
-  // Replace all query parameters (clears existing and sets new ones)
-  const replaceQueries = useCallback(
-    (queries: Record<string, string>, replace = false) => {
-      const params = new URLSearchParams();
-
-      Object.entries(queries).forEach(([key, value]) => {
-        params.set(key, value);
-      });
-
-      updateURL(params.toString(), replace);
-    },
-    [updateURL]
-  );
-
   return {
-    // Current query parameters as object
     queryParams,
-
-    // Get methods
-    getQuery,
-    getAllQueries,
-    hasQuery,
-
-    // Set methods
-    setQuery,
-    setQueries,
-
-    // Update methods
     updateQueries,
-
-    // Delete methods
-    deleteQuery,
-    deleteQueries,
-    clearQueries,
-
-    // Replace methods
-    replaceQueries,
   };
 };

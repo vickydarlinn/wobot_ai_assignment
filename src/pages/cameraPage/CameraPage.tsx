@@ -36,11 +36,6 @@ const CameraPage = () => {
     () => queryParams.status || ""
   );
 
-  // Sync cameras with fetched data
-  useEffect(() => {
-    setCameras(data);
-  }, [data]);
-
   // Get page size from URL
   const pageSize = parseInt(queryParams.limit || "10", 10);
 
@@ -215,6 +210,11 @@ const CameraPage = () => {
     },
   ];
 
+  // Sync cameras with fetched data
+  useEffect(() => {
+    setCameras(data);
+  }, [data]);
+
   return (
     <div className={styles.pageContainer}>
       {/* Header */}
@@ -264,7 +264,7 @@ const CameraPage = () => {
                     updateQueries({ location: value, page: "1" }, true);
                   }}
                 >
-                  <option value="">All Locations</option>
+                  <option value="">Locations</option>
                   {locations.map((location) => (
                     <option key={location} value={location}>
                       {location}
@@ -286,7 +286,7 @@ const CameraPage = () => {
                     updateQueries({ status: value, page: "1" }, true);
                   }}
                 >
-                  <option value="">All Status</option>
+                  <option value="">Status</option>
                   {statuses.map((status) => (
                     <option key={status} value={status}>
                       {status}

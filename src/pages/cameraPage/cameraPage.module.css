@@ -354,9 +354,9 @@
     width: 100%;
   }
 
-  .searchWrapper {
+  /* .searchWrapper {
     width: 100%;
-  }
+  } */
 
   .searchInput {
     width: 100%;
@@ -493,7 +493,15 @@
   .header {
     padding: 10px 12px;
   }
+  .pageHeader {
+    flex-direction: column;
+    align-items: flex-center;
+    gap: 8px;
+  }
 
+  .searchWrapper {
+    width: 100%;
+  }
   .logo svg {
     width: 90px;
     height: 28px;

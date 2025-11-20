@@ -23,7 +23,7 @@ const useFetchCameras = (): UseFetchCamerasState => {
       try {
         const response = await fetchAllCameras({ signal: controller.signal });
         if (!controller.signal.aborted) {
-          setData(response.data);
+          setData(response?.data ?? []);
         }
       } catch (err) {
         if (controller.signal.aborted) {

@@ -86,13 +86,6 @@ function Table<T>({
 
   const totalPages = Math.ceil(sortedData.length / pageSize);
 
-  // Reset to page 1 when search term changes
-  useEffect(() => {
-    if (searchTerm && currentPage > 1) {
-      updateQueries({ page: "1" }, true);
-    }
-  }, [searchTerm, currentPage, updateQueries]);
-
   // Handle sort
   const handleSort = (key: string) => {
     const newSortOrder =
@@ -143,6 +136,13 @@ function Table<T>({
 
   const isAllSelected =
     paginatedData.length > 0 && selectedRows.size === paginatedData.length;
+
+  // Reset to page 1 when search term changes
+  useEffect(() => {
+    if (searchTerm && currentPage > 1) {
+      updateQueries({ page: "1" }, true);
+    }
+  }, [searchTerm, currentPage, updateQueries]);
 
   return (
     <div className={styles.tableContainer}>
