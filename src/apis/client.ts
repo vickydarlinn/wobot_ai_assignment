@@ -60,21 +60,37 @@ axiosInstance.interceptors.response.use(
 const requestWrapper = async <T>(
   request: Promise<AxiosResponse<ApiResponse<T>>>
 ): Promise<ApiResult<T>> => {
-  const response = await request;
-  const payload = response.data;
+  try {
+    const response = await request;
+    const payload = response.data;
 
-  const statusCode = payload?.status ?? response.status;
-  const message = payload?.message ?? "";
+    const statusCode = payload?.status ?? response.status;
+    const message = payload?.message ?? "";
+    if (statusCode >= 400) {
+      throw new ApiError(
+        message || "Request failed",
+        statusCode,
+        payload?.data
+      );
+    }
 
-  if (statusCode >= 400) {
-    throw new ApiError(message || "Request failed", statusCode, payload?.data);
+    return {
+      status: statusCode,
+      message,
+      data: payload?.data as T,
+    };
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  } catch (error: any) {
+    if (error instanceof ApiError) {
+      throw error;
+    }
+
+    const status = error.response?.status ?? 500;
+    const data = error.response?.data ?? null;
+    const message = data?.message || error.message || "Request failed";
+
+    throw new ApiError(message, status, data);
   }
-
-  return {
-    status: statusCode,
-    message,
-    data: (payload?.data as T) ?? (null as T),
-  };
 };
 
 const createApiClient = (instance: AxiosInstance): ApiClient => ({

@@ -1,0 +1,556 @@
+.pageContainer {
+  min-height: 100vh;
+  background-color: #f9f9f9;
+}
+
+/* Header */
+.header {
+  border-bottom: 1px solid #e5e7eb;
+  padding: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+/* Main Content */
+.mainContent {
+  padding: 32px;
+}
+
+.contentWrapper {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* Page Header */
+.pageHeader {
+  margin-bottom: 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.pageTitle {
+  font-size: 28px;
+  font-weight: 600;
+  color: #111827;
+  margin-bottom: 4px;
+}
+
+.pageSubtitle {
+  font-size: 14px;
+  color: #6b7280;
+}
+
+/* Controls Bar */
+.controlsBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  /* border: 1px solid red; */
+  background-color: white;
+  padding: 8px 16px;
+  border-bottom: 1px solid #f3f4f6;
+  border-radius: 4px;
+}
+
+.filters {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.filterGroup {
+  position: relative;
+  display: inline-block;
+}
+
+.filterSelect {
+  appearance: none;
+  background-color: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  padding: 10px 40px 10px 36px;
+  font-size: 14px;
+  color: #374151;
+  cursor: pointer;
+  min-width: 180px;
+  transition: all 0.2s;
+  outline: none;
+}
+
+.filterSelect:hover {
+  border-color: #d1d5db;
+}
+
+.filterSelect:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.filterIcon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #9ca3af;
+  pointer-events: none;
+  font-size: 16px;
+}
+
+.filterChevron {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #9ca3af;
+  pointer-events: none;
+  font-size: 16px;
+}
+
+/* Search */
+.searchWrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.searchIcon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #9ca3af;
+  pointer-events: none;
+  font-size: 18px;
+}
+
+.searchInput {
+  padding: 10px 16px 10px 40px;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  font-size: 14px;
+  min-width: 280px;
+  outline: none;
+  transition: all 0.2s;
+  background-color: #ffffff;
+}
+
+.searchInput::placeholder {
+  color: #9ca3af;
+}
+
+.searchInput:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+/* Table Section */
+.tableSection {
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+/* Table Cell Styles */
+.nameCell {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.nameRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.statusDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.cameraName {
+  font-weight: 600;
+  color: #111827;
+  font-size: 14px;
+}
+
+.warningIcon {
+  color: #f59e0b;
+  font-size: 16px;
+  flex-shrink: 0;
+}
+
+.cameraEmail {
+  font-size: 12px;
+  color: #6b7280;
+  margin-left: 16px;
+}
+
+.healthCell {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.healthIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+}
+
+.healthIcon:hover {
+  background-color: #f3f4f6;
+}
+
+.healthIcon svg {
+  font-size: 16px;
+  color: #a0a0a0;
+}
+.healthGradeRing {
+  height: 20px;
+  width: 20px;
+  min-height: 20px;
+  min-width: 20px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: conic-gradient(orange 0 75%, #e0e8fc 75% 100%);
+  padding: 2px;
+  box-sizing: border-box;
+}
+
+.healthGradeLabel {
+  height: 100%;
+  width: 100%;
+  border-radius: 999px;
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  font-weight: 600;
+  color: #111827;
+}
+.statusBadge {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 500;
+  text-align: center;
+}
+
+.statusButton {
+  border: none;
+  transition: all 0.2s;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.statusButton:hover:not(:disabled) {
+  opacity: 0.8;
+  transform: scale(1.05);
+}
+
+.statusButton:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+.statusButton:disabled {
+  cursor: wait;
+}
+
+.actionButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #6b7280;
+  padding: 6px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+
+.actionButton:hover {
+  background-color: #f3f4f6;
+  color: #ef4444;
+}
+
+.actionButton:active {
+  transform: scale(0.95);
+}
+
+.actionsCell {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 8px;
+}
+
+.iconButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #6b7280;
+  padding: 6px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+
+.iconButton:hover:not(:disabled) {
+  background-color: #f3f4f6;
+  color: #111827;
+  transform: translateY(-1px);
+}
+
+.iconButton:active:not(:disabled) {
+  transform: translateY(0) scale(0.97);
+}
+
+.iconButton:disabled {
+  cursor: wait;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .mainContent {
+    padding: 24px 16px;
+  }
+
+  .controlsBar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .filters {
+    flex-wrap: wrap;
+    width: 100%;
+  }
+
+  .filterGroup {
+    flex: 1;
+    min-width: 150px;
+  }
+
+  .filterSelect {
+    width: 100%;
+  }
+
+  .searchWrapper {
+    width: 100%;
+  }
+
+  .searchInput {
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    padding: 12px 16px;
+  }
+
+  .logo svg {
+    width: 100px;
+    height: 30px;
+  }
+
+  .mainContent {
+    padding: 16px 12px;
+  }
+
+  .pageHeader {
+    margin-bottom: 20px;
+  }
+
+  .pageTitle {
+    font-size: 22px;
+  }
+
+  .pageSubtitle {
+    font-size: 13px;
+  }
+
+  .controlsBar {
+    margin-bottom: 16px;
+    gap: 12px;
+  }
+
+  .filters {
+    gap: 8px;
+  }
+
+  .filterGroup {
+    flex: 1 1 calc(50% - 4px);
+    min-width: 0;
+  }
+
+  .filterSelect {
+    min-width: 0;
+    font-size: 13px;
+    padding: 9px 32px 9px 32px;
+    width: 100%;
+  }
+
+  .filterIcon {
+    font-size: 14px;
+    left: 10px;
+  }
+
+  .filterChevron {
+    font-size: 14px;
+    right: 10px;
+  }
+
+  .searchInput {
+    font-size: 13px;
+    padding: 9px 16px 9px 36px;
+    min-width: 0;
+  }
+
+  .searchIcon {
+    font-size: 16px;
+    left: 10px;
+  }
+
+  /* Mobile Table Optimizations */
+  .nameCell {
+    max-width: 180px;
+  }
+
+  .cameraName {
+    font-size: 13px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .cameraEmail {
+    font-size: 11px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .healthCell {
+    gap: 8px;
+  }
+
+  .healthIcon {
+    width: 24px;
+    height: 24px;
+  }
+
+  .healthIcon svg {
+    font-size: 14px;
+  }
+
+  .statusBadge {
+    font-size: 11px;
+    padding: 3px 10px;
+  }
+
+  .actionButton {
+    padding: 4px;
+  }
+
+  .actionButton svg {
+    font-size: 18px;
+  }
+
+  .warningIcon {
+    font-size: 14px;
+  }
+
+  .actionsCell {
+    gap: 6px;
+  }
+
+  .iconButton {
+    padding: 4px;
+  }
+}
+
+@media (max-width: 480px) {
+  .header {
+    padding: 10px 12px;
+  }
+
+  .logo svg {
+    width: 90px;
+    height: 28px;
+  }
+
+  .mainContent {
+    padding: 12px 8px;
+  }
+
+  .pageTitle {
+    font-size: 20px;
+  }
+
+  .pageSubtitle {
+    font-size: 12px;
+  }
+
+  .filterGroup {
+    flex: 1 1 100%;
+  }
+
+  .filterSelect {
+    font-size: 12px;
+    padding: 8px 28px 8px 28px;
+  }
+
+  .searchInput {
+    font-size: 12px;
+    padding: 8px 12px 8px 32px;
+  }
+
+  .tableSection {
+    border-radius: 6px;
+  }
+
+  .nameCell {
+    max-width: 150px;
+  }
+
+  .cameraName {
+    font-size: 12px;
+  }
+
+  .cameraEmail {
+    font-size: 10px;
+  }
+
+  .statusBadge {
+    font-size: 10px;
+    padding: 2px 8px;
+  }
+
+  .actionsCell {
+    gap: 4px;
+  }
+
+  .iconButton {
+    padding: 3px;
+  }
+}

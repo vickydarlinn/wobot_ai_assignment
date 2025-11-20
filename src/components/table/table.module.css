@@ -1,0 +1,344 @@
+.tableContainer {
+  width: 100%;
+  background-color: hsla(0, 0%, 100%, 1);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.tableWrapper {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.table thead {
+  /* background-color: #fafafa; */
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.table thead th {
+  padding: 12px 16px;
+  text-align: left;
+  font-weight: 600;
+  font-size: 12px;
+  color: #6b7280;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+}
+
+.headerContent {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.sortableHeader {
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 0.2s;
+}
+
+.sortableHeader:hover {
+  background-color: #f3f4f6;
+}
+
+.sortIcon {
+  font-size: 12px;
+  color: #3b82f6;
+  font-weight: bold;
+}
+
+.sortIconInactive {
+  color: #d1d5db;
+  font-size: 12px;
+}
+
+.table tbody tr {
+  border-bottom: 1px solid #f3f4f6;
+  transition: background-color 0.15s;
+}
+
+.table tbody tr:last-child {
+  border-bottom: none;
+}
+
+.table tbody tr:hover {
+  background-color: #f9fafb;
+}
+
+.table tbody td {
+  padding: 16px;
+  color: #374151;
+  vertical-align: middle;
+}
+
+.clickableRow {
+  cursor: pointer;
+}
+
+.selectedRow {
+  background-color: #eff6ff !important;
+}
+
+.checkboxCell {
+  width: 40px;
+  padding: 16px 12px !important;
+}
+
+.checkbox {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+  accent-color: #3b82f6;
+}
+
+.loading,
+.empty {
+  padding: 48px 16px !important;
+  text-align: center;
+  color: #9ca3af;
+  font-size: 14px;
+}
+
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  /* justify-content: space-between; */
+  gap: 24px;
+  padding: 16px 24px;
+  border-top: 1px solid #e5e7eb;
+  background-color: #ffffff;
+}
+
+.pageSizeSelector {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.pageSizeSelect {
+  padding: 6px 32px 6px 12px;
+  border: 1px solid #e5e7eb;
+  border-radius: 4px;
+  background-color: #ffffff;
+  font-size: 13px;
+  color: #374151;
+  cursor: pointer;
+  appearance: none;
+  transition: all 0.2s;
+}
+
+.pageSizeSelect:hover {
+  border-color: #d1d5db;
+}
+
+.pageSizeSelect:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.paginationInfo {
+  font-size: 13px;
+  color: #6b7280;
+}
+
+.paginationControls {
+  display: flex;
+  gap: 4px;
+}
+
+.paginationButton {
+  min-width: 32px;
+  height: 32px;
+  padding: 0 8px;
+  border: 1px solid #e5e7eb;
+  background-color: #ffffff;
+  color: #374151;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.paginationButton:hover:not(:disabled) {
+  background-color: #f9fafb;
+  border-color: #d1d5db;
+}
+
+.paginationButton:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.paginationButton:active:not(:disabled) {
+  background-color: #f3f4f6;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .table {
+    font-size: 13px;
+  }
+
+  .table thead th,
+  .table tbody td {
+    padding: 12px 10px;
+  }
+
+  .table thead th {
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 768px) {
+  .tableWrapper {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .table {
+    font-size: 12px;
+    min-width: 800px;
+  }
+
+  .table thead th,
+  .table tbody td {
+    padding: 10px 8px;
+  }
+
+  .table thead th {
+    font-size: 10px;
+    padding: 10px 8px;
+  }
+
+  .headerContent {
+    gap: 4px;
+  }
+
+  .sortIcon,
+  .sortIconInactive {
+    font-size: 10px;
+  }
+
+  .checkboxCell {
+    width: 36px;
+    padding: 10px 8px !important;
+  }
+
+  .checkbox {
+    width: 14px;
+    height: 14px;
+  }
+
+  .pagination {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .pageSizeSelector {
+    order: 1;
+    flex: 0 0 auto;
+  }
+
+  .pageSizeSelect {
+    font-size: 12px;
+    padding: 5px 28px 5px 10px;
+  }
+
+  .paginationInfo {
+    font-size: 12px;
+    order: 2;
+    flex: 1 1 auto;
+    text-align: center;
+  }
+
+  .paginationControls {
+    order: 3;
+    justify-content: flex-end;
+    flex: 0 0 auto;
+  }
+
+  .paginationButton {
+    min-width: 28px;
+    height: 28px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .table {
+    font-size: 11px;
+    min-width: 750px;
+  }
+
+  .table thead th,
+  .table tbody td {
+    padding: 8px 6px;
+  }
+
+  .table thead th {
+    font-size: 9px;
+    padding: 8px 6px;
+  }
+
+  .checkboxCell {
+    width: 32px;
+    padding: 8px 6px !important;
+  }
+
+  .checkbox {
+    width: 12px;
+    height: 12px;
+  }
+
+  .pagination {
+    padding: 10px 12px;
+    gap: 8px;
+  }
+
+  .pageSizeSelector {
+    flex: 1 1 100%;
+    order: 1;
+  }
+
+  .pageSizeSelect {
+    width: 100%;
+    font-size: 11px;
+    padding: 4px 24px 4px 8px;
+  }
+
+  .paginationInfo {
+    font-size: 11px;
+    order: 2;
+    flex: 1 1 100%;
+  }
+
+  .paginationControls {
+    order: 3;
+    flex: 1 1 100%;
+    justify-content: center;
+  }
+
+  .paginationButton {
+    min-width: 26px;
+    height: 26px;
+    font-size: 13px;
+    padding: 0 6px;
+  }
+
+  .loading,
+  .empty {
+    padding: 32px 12px !important;
+    font-size: 13px;
+  }
+}
