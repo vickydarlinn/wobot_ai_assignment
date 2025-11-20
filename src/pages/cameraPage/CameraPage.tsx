@@ -15,7 +15,7 @@ import { useQuery } from "../../hooks/useQuery";
 import Table, { type Column } from "../../components/table/Table";
 import Dialog from "../../components/dialog";
 import type { Camera } from "../../types";
-import styles from "./camerasPage.module.css";
+import styles from "./cameraPage.module.css";
 import { GoCircleSlash } from "react-icons/go";
 import { RiRssLine, RiServerLine } from "react-icons/ri";
 
